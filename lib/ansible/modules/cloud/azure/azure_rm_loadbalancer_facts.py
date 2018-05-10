@@ -153,7 +153,7 @@ class AzureRMLoadBalancerFacts(AzureRMModuleBase):
         self.log('List all load balancers')
 
         try:
-            response = self.network_client.load_balancers.list()
+            response = self.network_client.load_balancers.list(self.resource_group)
         except AzureHttpError as exc:
             self.fail('Failed to list all items - {}'.format(str(exc)))
 
